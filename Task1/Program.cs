@@ -19,9 +19,9 @@ namespace Task1
         {
             Random rnd = new Random();
 
-            for (int r = 0; r < numberArray.GetLength(0); ++r)
+            for (int r = 0; r < numberArray.GetLength(0); r++)
             {
-                for (int c = 0; c < numberArray.GetLength(1); ++c)
+                for (int c = 0; c < numberArray.GetLength(1); c++)
                 {
                     numberArray[r, c] = rnd.Next(1, 400);
                     Console.Write(numberArray[r, c] + "\t");
@@ -39,16 +39,16 @@ namespace Task1
             int? maxRow = null;
             int? maxCol = null;
 
-            for (int r = 0; r < numberArray.GetLength(0); ++r)
+            for (int r = 0; r < numberArray.GetLength(0); r++)
             {
-                for (int c = 0; c < numberArray.GetLength(1); ++c)
+                for (int c = 0; c < numberArray.GetLength(1); c++)
                 {
-                    int cell = numberArray[r, c];
+                    int minCell = numberArray[r, c];
                     int maxCell = numberArray[r, c];
-
-                    if (!minValue.HasValue || cell < minValue)
+                  
+                    if (!minValue.HasValue || minCell < minValue)
                     {
-                        minValue = cell;
+                        minValue = minCell;
                         minRow = r;
                         minCol = c;
                     }
@@ -93,7 +93,9 @@ namespace Task1
             for (int r = 0; r < numberArray.GetLength(0); r++)
             {
                 for (int c = 0; c < numberArray.GetLength(1); c++)
+                {
                     Console.Write(numberArray[r, c] + "\t");
+                }
                 Console.WriteLine();
             }
         }
